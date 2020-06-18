@@ -5,20 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Spielautomat_WPF_T12_B"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="Button_1" Content="Klick mich!" HorizontalAlignment="Left" Margin="109,43,0,0" VerticalAlignment="Top" Width="200" Height="100" FontSize="40" FontFamily="Segoe UI Light" Click="Button_1_Click"/>
-        <Rectangle x:Name="Rechteck_1" Fill="Cyan" HorizontalAlignment="Left" Height="155" Margin="465,221,0,0" Stroke="Black" VerticalAlignment="Top" Width="237"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="142,221,0,0" VerticalAlignment="Top" Height="32" Width="203"/>
-        <TextBlock x:Name="Ausgabefeld" HorizontalAlignment="Left" Margin="142,274,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="203"/>
-        <TextBox x:Name="Eingabefeld" HorizontalAlignment="Left" Height="23" Margin="142,324,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_A" HorizontalAlignment="Left" Height="23" Margin="502,34,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TB_B" HorizontalAlignment="Left" Height="23" Margin="502,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="TB_AB" HorizontalAlignment="Left" Margin="502,140,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="120"/>
-        <Label Content="+" HorizontalAlignment="Left" Margin="544,57,0,0" VerticalAlignment="Top"/>
-        <Label Content="=" HorizontalAlignment="Left" Margin="544,112,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BTN_Add" Content="Addieren!" HorizontalAlignment="Left" Margin="646,57,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Add_Click"/>
-
+        Title="MainWindow" Height="450" Width="463.489">
+    <Grid Margin="0,0,-8,0">
+        <TextBlock x:Name="TB_Zahl1" HorizontalAlignment="Left" Margin="153,80,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="52" Width="33" FontSize="36" TextAlignment="Center"/>
+        <TextBlock x:Name="TB_Zahl2" HorizontalAlignment="Left" Margin="221,80,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="52" Width="33" FontSize="36" TextAlignment="Center"/>
+        <TextBlock x:Name="TB_Zahl3" HorizontalAlignment="Left" Margin="282,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="33" Text="0" FontSize="36" TextAlignment="Center"/>
+        <Label Content="Guthaben" HorizontalAlignment="Left" Margin="92,199,0,0" VerticalAlignment="Top" Height="37" Width="108" FontSize="22"/>
+        <Label Content="Einsatz" HorizontalAlignment="Left" Margin="245,199,0,0" VerticalAlignment="Top" Height="37" Width="108" FontSize="22"/>
+        <TextBlock x:Name="TB_Guthaben" HorizontalAlignment="Left" Margin="92,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="108" FontSize="22" Text="5" TextAlignment="Center"/>
+        <TextBox x:Name="TBox_Einsatz" HorizontalAlignment="Left" Height="41" Margin="245,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" FontSize="22"/>
+        <Button x:Name="B_Spiel" Content="Spielen" HorizontalAlignment="Left" Margin="183,310,0,0" VerticalAlignment="Top" Width="95" Height="41" FontSize="24" Click="B_Spiel_Click"/>
     </Grid>
 </Window>

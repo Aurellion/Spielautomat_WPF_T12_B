@@ -25,37 +25,68 @@ namespace Spielautomat_WPF_T12_B
             InitializeComponent();
         }
 
-        private void Button_1_Click(object sender, RoutedEventArgs e)
+        private void B_Spiel_Click(object sender, RoutedEventArgs e)
         {
-            //Farbe ändern
+            Random rnd = new Random();
+            int einsatz, guthaben, gewinn;
+            guthaben = Convert.ToInt32(TB_Guthaben.Text);
+            einsatz = Convert.ToInt32(TBox_Einsatz.Text);
+            int z1, z2, z3;
+            if(einsatz <= 0)
+            {
+                MessageBox.Show("Der Einsatz muss größer als Null sein!",
+                                "Falscher Einsatz");
+            }
+            else if(einsatz > guthaben)
+            {
+                MessageBox.Show("Der Einsatz darf nicht größer als das Guthaben sein!",
+                                "Falscher Einsatz");
+            }
+            else
+            {
+                guthaben -= einsatz;
+                TB_Guthaben.Text = guthaben.ToString();
+                z1 = rnd.Next(1, 8);
+                z2 = rnd.Next(1, 8);
+                z3 = rnd.Next(1, 8);
+                TB_Zahl1.Text = z1.ToString();
+                TB_Zahl2.Text = z2.ToString();
+                TB_Zahl3.Text = z3.ToString();
+                if (z1 == z2 && z2 == z3)
+                {
+                    gewinn = 10 * einsatz;
+                    guthaben += gewinn;
+                    MessageBox.Show("Hauptgewinn! " + gewinn, "Gewonnen");
+                }
+                else if (z1==z2||z2==z3||z1==z3)
+                {
+                    gewinn = 3 * einsatz;
+                    guthaben += gewinn;
+                    MessageBox.Show("Gewinn! " + gewinn, "Gewonnen");
+                }
+                else
+                {
+                    MessageBox.Show("Leider kein Gewinn.", "Verloren");
+                }
+                TB_Guthaben.Text = guthaben.ToString();
 
-            //if (Rechteck_1.Fill == Brushes.Cyan)
-            //{
-            //    Rechteck_1.Fill = Brushes.Magenta;
-            //}
-            //else
-            //{
-            //    Rechteck_1.Fill = Brushes.Cyan;
-            //}
-            Rechteck_1.Fill = (Rechteck_1.Fill == Brushes.Cyan) ? Brushes.Magenta : Brushes.Cyan;
+                if (guthaben == 0)
+                {
+                    MessageBoxResult ergebnis;
+                    ergebnis = MessageBox.Show("Neues Spiel?", "Spiel vorbei", MessageBoxButton.YesNo);
 
-            //Eingabe--Ausgabe
-
-            //string eingabe;
-            //eingabe = Eingabefeld.Text;
-            //Ausgabefeld.Text = eingabe;
-            Ausgabefeld.Text = Eingabefeld.Text;
-        }
-
-        private void BTN_Add_Click(object sender, RoutedEventArgs e)
-        {
-            int a, b, summe;
-            a = Convert.ToInt32(TB_A.Text);
-            b = Convert.ToInt32(TB_B.Text);
-            summe = a + b;
-            TB_AB.Text = summe.ToString();
-            TB_A.Text = "";
-            TB_B.Text = "";
+                    switch (ergebnis)
+                    {
+                        case MessageBoxResult.Yes:
+                            guthaben = 5;
+                            TB_Guthaben.Text = guthaben.ToString();
+                            break;
+                        case MessageBoxResult.No:
+                            Application.Current.Shutdown();
+                            break;
+                    }
+                }
+            }
         }
     }
 }
